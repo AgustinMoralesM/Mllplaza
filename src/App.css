@@ -1,0 +1,222 @@
+/* --- GENERAL --- */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* ✅ centra el contenido verticalmente */
+}
+
+/* Contenedor principal */
+#root {
+  width: 100%;
+  max-width: 1200px; /* ✅ límite de ancho para centrar en pantallas grandes */
+  box-sizing: border-box;
+}
+
+/* --- PÁGINA DE LOGIN --- */
+.pagina-login {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #ff0000, #ff4d4d);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formulario-login {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 40px 60px;
+  width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.formulario-login h1 {
+  color: #ff0000;
+}
+
+.formulario-login p {
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.formulario-login label {
+  display: block;
+  text-align: left;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.formulario-login input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.btn-login {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-login:hover {
+  background-color: #cc0000;
+}
+
+.acciones-login {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.acciones-login button {
+  background: none;
+  border: none;
+  color: #ff0000;
+  cursor: pointer;
+}
+
+.acciones-login button:hover {
+  text-decoration: underline;
+}
+
+/* --- PÁGINA PRINCIPAL --- */
+.pagina-web {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #fff;
+  justify-content: center; /* ✅ centra el contenido verticalmente */
+  align-items: center; /* ✅ centra horizontalmente */
+}
+
+/* HEADER */
+.header {
+  background-color: #ff0000;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  border-radius: 8px;
+}
+
+.acciones-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.acciones-header button {
+  background-color: white;
+  color: #ff0000;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.acciones-header button:hover {
+  background-color: #f0f0f0;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.contenido-web {
+  display: flex;
+  justify-content: center; /* ✅ centra horizontalmente */
+  align-items: flex-start;
+  padding: 40px;
+  flex-grow: 1;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 90%;
+}
+
+/* --- PRODUCTOS --- */
+.productos {
+  width: 60%;
+  background-color: #fffafa;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card-producto {
+  border: 1px solid #ffcccc;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  background-color: white;
+}
+
+.card-producto h4 {
+  color: #cc0000;
+}
+
+.card-producto button {
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.card-producto button:hover {
+  background-color: #cc0000;
+}
+
+/* --- CARRITO --- */
+.carrito {
+  width: 30%;
+  background-color: #fffafa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.carrito h3 {
+  color: #cc0000;
+  margin-bottom: 10px;
+}
+
+.carrito li {
+  color: #333;
+  margin-bottom: 6px;
+}
+
+/* --- FOOTER --- */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #ff0000;
+  color: white;
+  font-size: 14px;
+  width: 90%;
+  border-radius: 8px;
+  margin-top: 30px;
+}
