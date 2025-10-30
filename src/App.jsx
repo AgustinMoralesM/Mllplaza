@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
@@ -16,13 +16,42 @@ function App() {
     { id: 6, nombre: "Disco SSD 480GB", precio: 200000 },
   ];
 
-  const manejarEnvio = (e) => {
+  useEffect(() => {
+    const usuarioGuardado = localStorage.getItem("usuario");
+    if (usuarioGuardado) {
+      setUsuario(usuarioGuardado);
+      setLogueado(true);
+    }
+  }, []);
+
+  const manejarEnvio = async (e) => {
     e.preventDefault();
+
     if (usuario.trim() === "" || contraseña.trim() === "") {
       alert("Por favor complete todos los campos.");
       return;
     }
-    setLogueado(true);
+
+    try {
+      const respuesta = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ usuario, clave: contraseña }),
+      });
+
+      const datos = await respuesta.json();
+
+      if (respuesta.ok && datos.success) {
+        alert("Inicio de sesión correcto");
+        setLogueado(true);
+        localStorage.setItem("usuario", datos.usuario);
+      } else {
+        alert(datos.message || "Usuario o contraseña incorrectos");
+      }
+    } catch (error) {
+      console.error("Error al conectar con el servidor:", error);
+      alert("No se pudo conectar con el backend");
+    }
   };
 
   const agregarAlCarrito = (producto) => {
@@ -81,6 +110,7 @@ function App() {
               setUsuario("");
               setContraseña("");
               setCarrito([]);
+              localStorage.removeItem("usuario");
             }}
           >
             Cerrar sesión
