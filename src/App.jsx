@@ -90,7 +90,35 @@ function App() {
 
             <div className="acciones-login">
               <button type="button">Olvidé mi contraseña</button>
-              <button type="button">Registrar nuevo usuario</button>
+              <button
+  type="button"
+  onClick={async () => {
+    const nuevoUsuario = prompt("Ingresa un nombre de usuario:");
+    const nuevaClave = prompt("Ingresa una contraseña:");
+
+    if (!nuevoUsuario || !nuevaClave) {
+      alert("Debes llenar todos los campos");
+      return;
+    }
+
+    try {
+      const respuesta = await fetch("http://localhost:3000/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ usuario: nuevoUsuario, clave: nuevaClave }),
+      });
+
+      const datos = await respuesta.json();
+      alert(datos.message);
+    } catch (error) {
+      alert("Error al registrar el usuario");
+      console.error(error);
+    }
+  }}
+>
+  Registrar nuevo usuario
+</button>
+
             </div>
           </form>
         </div>
